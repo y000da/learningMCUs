@@ -1,0 +1,44 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16"</DEVICE>
+ <WORKING_DIR>E:\project4\AssemblerApplication1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\project4\AssemblerApplication1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m16def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\project4\AssemblerApplication1\Debug\AssemblerApplication1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication1.map</FILE>
+  <FILE>AssemblerApplication1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Init><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>87</LINE></Init>
+  <Init_B><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>93</LINE></Init_B>
+  <Init_C><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>98</LINE></Init_C>
+  <delay_DK><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>149</LINE></delay_DK>
+  <Init_CNT><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>105</LINE></Init_CNT>
+  <Start><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>110</LINE></Start>
+  <PB5_check><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>115</LINE></PB5_check>
+  <check><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>119</LINE></check>
+  <Read><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>127</LINE></Read>
+  <TABLE><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>165</LINE></TABLE>
+  <Write_C><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>133</LINE></Write_C>
+  <Delay1_1><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>134</LINE></Delay1_1>
+  <Key_end1><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>136</LINE></Key_end1>
+  <Key_end2><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>138</LINE></Key_end2>
+  <Delay2_2><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>140</LINE></Delay2_2>
+  <End_prog><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>141</LINE></End_prog>
+  <Cycle><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>153</LINE></Cycle>
+  <End_deley><FILE>E:\project4\AssemblerApplication1\main.asm</FILE><LINE>157</LINE></End_deley>
+ </LABELS>
+</ASSEMBLER_INFO>

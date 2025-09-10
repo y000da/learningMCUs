@@ -1,0 +1,41 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16"</DEVICE>
+ <WORKING_DIR>E:\project2\AssemblerApplication1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\project2\AssemblerApplication1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m16def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\project2\AssemblerApplication1\Debug\AssemblerApplication1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication1.map</FILE>
+  <FILE>AssemblerApplication1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Init><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>87</LINE></Init>
+  <Init_B><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>93</LINE></Init_B>
+  <Init_C><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>98</LINE></Init_C>
+  <delay_DK><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>137</LINE></delay_DK>
+  <Init_CNT><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>105</LINE></Init_CNT>
+  <Start><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>110</LINE></Start>
+  <Read><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>117</LINE></Read>
+  <TABLE><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>153</LINE></TABLE>
+  <Write_C><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>123</LINE></Write_C>
+  <Delay1_1><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>124</LINE></Delay1_1>
+  <Key_end><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>126</LINE></Key_end>
+  <Delay2_2><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>128</LINE></Delay2_2>
+  <End_prog><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>129</LINE></End_prog>
+  <Cycle><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>141</LINE></Cycle>
+  <End_deley><FILE>E:\project2\AssemblerApplication1\main.asm</FILE><LINE>145</LINE></End_deley>
+ </LABELS>
+</ASSEMBLER_INFO>

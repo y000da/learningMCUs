@@ -1,0 +1,185 @@
+
+project3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000102  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000176  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000c  00800060  00800060  00000176  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000176  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001a8  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  000001e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000064b  00000000  00000000  0000020c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000596  00000000  00000000  00000857  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000251  00000000  00000000  00000ded  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000034  00000000  00000000  00001040  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000031b  00000000  00000000  00001074  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  0000138f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	ac 36       	cpi	r26, 0x6C	; 108
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 44 00 	call	0x88	; 0x88 <main>
+  74:	0c 94 7f 00 	jmp	0xfe	; 0xfe <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <InitUSART>:
+    скорость обмена 19200 бод, 8 бит данных, 1 стоп-бит, бит паритета - нет
+************************************************************************/
+void InitUSART(void)
+{
+    
+    UBRRL = 0x1D;                               // Установка скорости обмена
+  7c:	8d e1       	ldi	r24, 0x1D	; 29
+  7e:	89 b9       	out	0x09, r24	; 9
+    UBRRH = 0x00;                               // UBRR = 9216000/(16*BOD)-1
+  80:	10 bc       	out	0x20, r1	; 32
+    UCSRC = (1<<URSEL)|(1<<UCSZ0)|(1<<UCSZ1);   // Формат кадра - 8 бит данных, без бита паритета
+  82:	86 e8       	ldi	r24, 0x86	; 134
+  84:	80 bd       	out	0x20, r24	; 32
+  86:	08 95       	ret
+
+00000088 <main>:
+Главная программа
+************************************************************************/
+int main(void)
+{   
+    //Инициализация необходимых периферийных модулей
+    InitUSART();    //Инициализация модуля USART
+  88:	0e 94 3e 00 	call	0x7c	; 0x7c <InitUSART>
+	                         
+    //UCSRB &= ~(1<<TXEN);
+    UCSRB |= (1<<RXEN);
+  8c:	54 9a       	sbi	0x0a, 4	; 10
+	UCSRB &= ~(1<<TXEN);             
+  8e:	53 98       	cbi	0x0a, 3	; 10
+    while(1)
+    {
+        if(UCSRA & (1<<RXC))
+  90:	5f 9b       	sbis	0x0b, 7	; 11
+  92:	15 c0       	rjmp	.+42     	; 0xbe <main+0x36>
+        {
+			UCSRB &= ~(1<<RXEN);    // Запрет приёма
+  94:	54 98       	cbi	0x0a, 4	; 10
+            temp = UDR;
+  96:	9c b1       	in	r25, 0x0c	; 12
+  98:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <temp>
+            buf[counter_buf] = temp;
+  9c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+  a0:	e8 2f       	mov	r30, r24
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	ec 59       	subi	r30, 0x9C	; 156
+  a6:	ff 4f       	sbci	r31, 0xFF	; 255
+  a8:	90 83       	st	Z, r25
+            counter_buf = (counter_buf + 1) & 0x07;
+  aa:	8f 5f       	subi	r24, 0xFF	; 255
+  ac:	87 70       	andi	r24, 0x07	; 7
+  ae:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
+            counter_rx++;
+  b2:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <counter_rx>
+  b6:	8f 5f       	subi	r24, 0xFF	; 255
+  b8:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <counter_rx>
+			UCSRB |= (1<<RXEN);    // Разрешение приёма
+  bc:	54 9a       	sbi	0x0a, 4	; 10
+        }
+        if(counter_rx != counter_tx)
+  be:	90 91 62 00 	lds	r25, 0x0062	; 0x800062 <counter_rx>
+  c2:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <counter_tx>
+  c6:	98 17       	cp	r25, r24
+  c8:	19 f3       	breq	.-58     	; 0x90 <main+0x8>
+        {
+            if(UCSRA & (1<<UDRE))
+  ca:	5d 9b       	sbis	0x0b, 5	; 11
+  cc:	e1 cf       	rjmp	.-62     	; 0x90 <main+0x8>
+            {
+				UCSRB &= ~(1<<RXEN);    // Запрет приёма
+  ce:	54 98       	cbi	0x0a, 4	; 10
+				UCSRB |= (1<<TXEN);     // Разрешение передачи
+  d0:	53 9a       	sbi	0x0a, 3	; 10
+                counter_buf = (counter_buf - 1) & 0x07;
+  d2:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <_edata>
+  d6:	e1 50       	subi	r30, 0x01	; 1
+  d8:	e7 70       	andi	r30, 0x07	; 7
+  da:	e0 93 60 00 	sts	0x0060, r30	; 0x800060 <_edata>
+				temp = buf[counter_buf];
+  de:	f0 e0       	ldi	r31, 0x00	; 0
+  e0:	ec 59       	subi	r30, 0x9C	; 156
+  e2:	ff 4f       	sbci	r31, 0xFF	; 255
+  e4:	80 81       	ld	r24, Z
+  e6:	80 93 63 00 	sts	0x0063, r24	; 0x800063 <temp>
+				UDR = temp;
+  ea:	8c b9       	out	0x0c, r24	; 12
+                counter_tx++;
+  ec:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <counter_tx>
+  f0:	8f 5f       	subi	r24, 0xFF	; 255
+  f2:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <counter_tx>
+				while(UCSRA & (1<<TXC) == 0) {}
+  f6:	8b b1       	in	r24, 0x0b	; 11
+				UCSRB &= ~(1<<TXEN);    // Запрет передачи
+  f8:	53 98       	cbi	0x0a, 3	; 10
+				UCSRB |= (1<<RXEN);     // Разрешение приёма
+  fa:	54 9a       	sbi	0x0a, 4	; 10
+  fc:	c9 cf       	rjmp	.-110    	; 0x90 <main+0x8>
+
+000000fe <_exit>:
+  fe:	f8 94       	cli
+
+00000100 <__stop_program>:
+ 100:	ff cf       	rjmp	.-2      	; 0x100 <__stop_program>

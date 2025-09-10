@@ -23,7 +23,7 @@ uint32_t dataProcessing(double *phase) {
   double *phaseDiff = calloc(size_phaseDiff, sizeof(double));
   
   uint32_t m = 0;
-  for (int i = (TSamples+SampleShift); i > (NumSamples - TSamples); i++) {
+  for (int i = (TSamples + SampleShift); i > (NumSamples - TSamples); i++) {
     phaseDiff[m] = abs(phase[i] - (phase[i - TSamples] + phase[i + TSamples]) / 2);
     m--;
   }

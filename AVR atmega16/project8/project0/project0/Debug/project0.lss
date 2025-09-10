@@ -1,0 +1,376 @@
+
+project0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001c2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000001c2  00000256  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  0080006c  0080006c  00000262  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000262  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000294  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000060  00000000  00000000  000002d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000073e  00000000  00000000  00000330  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005be  00000000  00000000  00000a6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000371  00000000  00000000  0000102c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000000c4  00000000  00000000  000013a0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000377  00000000  00000000  00001464  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000078  00000000  00000000  000017db  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000050  00000000  00000000  00001853  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 c4 00 	jmp	0x188	; 0x188 <__vector_9>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 b0 00 	jmp	0x160	; 0x160 <__vector_14>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e2 ec       	ldi	r30, 0xC2	; 194
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ac 36       	cpi	r26, 0x6C	; 108
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	ac e6       	ldi	r26, 0x6C	; 108
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a0 37       	cpi	r26, 0x70	; 112
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 94 00 	call	0x128	; 0x128 <main>
+  8a:	0c 94 df 00 	jmp	0x1be	; 0x1be <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <InitPort>:
+/***********************************************************************
+	Инициализация портов В/B
+************************************************************************/
+void InitPort(void)
+{	
+	DDRA = 0b00000000;	// PA0...PA7 - входы
+  92:	1a ba       	out	0x1a, r1	; 26
+	PORTA = 0b00000000;	// выключены подтягивающие резисторы	
+  94:	1b ba       	out	0x1b, r1	; 27
+	
+	DDRB = 0b01111111;	// PB7 - вход, остальные - выходы
+  96:	8f e7       	ldi	r24, 0x7F	; 127
+  98:	87 bb       	out	0x17, r24	; 23
+	PORTB = 0b10000001;	// Разрешен первый индикатор
+  9a:	81 e8       	ldi	r24, 0x81	; 129
+  9c:	88 bb       	out	0x18, r24	; 24
+						// на входе PB7 - подтягивающие резисторы
+		
+	DDRC = 0b11111111;	// PС0...PС7 - выходы
+  9e:	8f ef       	ldi	r24, 0xFF	; 255
+  a0:	84 bb       	out	0x14, r24	; 20
+	PORTC = 0b11111100;	// код "0" при включении
+  a2:	8c ef       	ldi	r24, 0xFC	; 252
+  a4:	85 bb       	out	0x15, r24	; 21
+    
+	DDRD = 0b00000010;	// PD1(TxD) - выход, PD0(RxD) - вход
+  a6:	82 e0       	ldi	r24, 0x02	; 2
+  a8:	81 bb       	out	0x11, r24	; 17
+	PORTD = 0b00000010; // PD1(TxD) - пассивное состояние лог. 1
+  aa:	82 bb       	out	0x12, r24	; 18
+  ac:	08 95       	ret
+
+000000ae <InitTimerT0>:
+	Выбирается нормальный режим с предделителем 1024
+	время переполнения t=1024*256/9216000 = 28,4 мс
+************************************************************************/
+void InitTimerT0(void)
+{
+	TCCR0 = (1<<CS02)|(1<<CS00);    // запуск Т0 с предделителем 1024
+  ae:	85 e0       	ldi	r24, 0x05	; 5
+  b0:	83 bf       	out	0x33, r24	; 51
+	TIMSK |= 1<<TOIE0;				//Разрешение прерывания по переполнению Т0
+  b2:	89 b7       	in	r24, 0x39	; 57
+  b4:	81 60       	ori	r24, 0x01	; 1
+  b6:	89 bf       	out	0x39, r24	; 57
+  b8:	08 95       	ret
+
+000000ba <InitTimerT1>:
+	Инициализация таймера T1
+	Режим работы: CTC, предделитель 256, формируемое время: 1 с
+************************************************************************/
+void InitTimerT1(void)
+{
+	TCCR1B = (1<<WGM12)|(1<<CS12);// Выбор режима CTC, таймер включен с предделителем 256
+  ba:	8c e0       	ldi	r24, 0x0C	; 12
+  bc:	8e bd       	out	0x2e, r24	; 46
+	OCR1A = 0x8C9F;			// периодичность запуска АЦП = 1 с ->
+  be:	8f e9       	ldi	r24, 0x9F	; 159
+  c0:	9c e8       	ldi	r25, 0x8C	; 140
+  c2:	9b bd       	out	0x2b, r25	; 43
+  c4:	8a bd       	out	0x2a, r24	; 42
+							// 1*9216000/256=36000-1=35999 (8C9F)
+	OCR1B = 0x8C9F;		// запись в регистр OCR1B для формирования события:
+  c6:	99 bd       	out	0x29, r25	; 41
+  c8:	88 bd       	out	0x28, r24	; 40
+  ca:	08 95       	ret
+
+000000cc <InitUSART>:
+	скорость обмена 19200 бод, 8 бит данных, 1 стоп-бит, бит паритета - нет
+************************************************************************/
+void InitUSART(void)
+{
+	
+	UBRRL = 29;					// Установка скорости обмена
+  cc:	8d e1       	ldi	r24, 0x1D	; 29
+  ce:	89 b9       	out	0x09, r24	; 9
+	UBRRH = 0;					// UBRR = 9216000/(16*19200) - 1 = 29
+  d0:	10 bc       	out	0x20, r1	; 32
+	UCSRC = (1<<URSEL)|(1<<UCSZ0)|(1<<UCSZ1);// Формат кадра - 8 бит данных, без бита паритета
+  d2:	86 e8       	ldi	r24, 0x86	; 134
+  d4:	80 bd       	out	0x20, r24	; 32
+	UCSRB = (1<<TXEN);				// разрешение работы передатчика	
+  d6:	88 e0       	ldi	r24, 0x08	; 8
+  d8:	8a b9       	out	0x0a, r24	; 10
+  da:	08 95       	ret
+
+000000dc <InitADC>:
+	Запуск преобразования - по совпадению канала В таймера Т1;
+	Выравнивание результата - по левому краю (считывается 8 ст. бит)
+************************************************************************/
+void InitADC(void)
+{
+	ADMUX = (1<<REFS1)|(1<<REFS0)|(1<<ADLAR);	// опорн. напр. - 2,56В,
+  dc:	80 ee       	ldi	r24, 0xE0	; 224
+  de:	87 b9       	out	0x07, r24	; 7
+								// выравнивание - по левому краю
+	SFIOR = (1<<ADTS2)|(1<<ADTS0);	// источник запуска -
+  e0:	80 ea       	ldi	r24, 0xA0	; 160
+  e2:	80 bf       	out	0x30, r24	; 48
+							// совпадение канала В таймера Т1
+	ADCSRA = (1<<ADEN)|(1<<ADATE)|(1<<ADIE)|(1<<ADPS2)|(1<<ADPS1);
+  e4:	8e ea       	ldi	r24, 0xAE	; 174
+  e6:	86 b9       	out	0x06, r24	; 6
+  e8:	08 95       	ret
+
+000000ea <ChangeChannel>:
+/**************************************************
+	Подпрограмма изменения канала преобразования
+***************************************************/
+void ChangeChannel(void)
+{
+	number++;
+  ea:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <number>
+  ee:	8f 5f       	subi	r24, 0xFF	; 255
+	if (number == 8) // number=8?(8 входных каналов)
+  f0:	88 30       	cpi	r24, 0x08	; 8
+  f2:	19 f0       	breq	.+6      	; 0xfa <ChangeChannel+0x10>
+/**************************************************
+	Подпрограмма изменения канала преобразования
+***************************************************/
+void ChangeChannel(void)
+{
+	number++;
+  f4:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <number>
+  f8:	02 c0       	rjmp	.+4      	; 0xfe <ChangeChannel+0x14>
+	if (number == 8) // number=8?(8 входных каналов)
+	{
+		number = 0;
+  fa:	10 92 6e 00 	sts	0x006E, r1	; 0x80006e <number>
+	}
+	//изменение канала преобразования
+ADMUX &= ~((1<<MUX4)|(1<<MUX3)|(1<<MUX2)|(1<<MUX1)|(1<<MUX0));// сбросятся 0-4 разряды,
+  fe:	87 b1       	in	r24, 0x07	; 7
+ 100:	80 7e       	andi	r24, 0xE0	; 224
+ 102:	87 b9       	out	0x07, r24	; 7
+																	// остальные не изменятся
+	ADMUX |=number;	
+ 104:	97 b1       	in	r25, 0x07	; 7
+ 106:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <number>
+ 10a:	89 2b       	or	r24, r25
+ 10c:	87 b9       	out	0x07, r24	; 7
+	PORTC = table[number];	// загрузка нового значения в регистр PORTC
+ 10e:	e0 91 6e 00 	lds	r30, 0x006E	; 0x80006e <number>
+ 112:	f0 e0       	ldi	r31, 0x00	; 0
+ 114:	ef 59       	subi	r30, 0x9F	; 159
+ 116:	ff 4f       	sbci	r31, 0xFF	; 255
+ 118:	80 81       	ld	r24, Z
+ 11a:	85 bb       	out	0x15, r24	; 21
+	flagDeb = 1;			// установка флага необходимости подавления дребезга
+ 11c:	81 e0       	ldi	r24, 0x01	; 1
+ 11e:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <flagDeb>
+	InitTimerT0();		// запуск таймера Т0 на формирования задержки	
+ 122:	0e 94 57 00 	call	0xae	; 0xae <InitTimerT0>
+ 126:	08 95       	ret
+
+00000128 <main>:
+
+
+int main(void)
+{
+	//Инициализация необходимых периферийных модулей
+	InitPort();		// Инициализация портов В/B
+ 128:	0e 94 49 00 	call	0x92	; 0x92 <InitPort>
+	InitTimerT1();	// Инициализация таймера T1
+ 12c:	0e 94 5d 00 	call	0xba	; 0xba <InitTimerT1>
+	InitUSART();	// Инициализация модуля USART
+ 130:	0e 94 66 00 	call	0xcc	; 0xcc <InitUSART>
+	InitADC();		// Инициализация модуля USART
+ 134:	0e 94 6e 00 	call	0xdc	; 0xdc <InitADC>
+	
+	sei();	//Глобальное разрешение прерываний (определена в interrupt.h)
+ 138:	78 94       	sei
+	
+    while(1)
+    {
+        if(flagDeb != 1) //флаг flagDeb установлен?
+ 13a:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <flagDeb>
+ 13e:	81 30       	cpi	r24, 0x01	; 1
+ 140:	19 f0       	breq	.+6      	; 0x148 <main+0x20>
+		{				 //нет
+			if((PINB & (1 << PINB7)) == 0)  // кнопка "Канал" (PB7) нажата?
+ 142:	b7 9b       	sbis	0x16, 7	; 22
+			{
+				ChangeChannel();// подпрограмма изменения канала преобразования
+ 144:	0e 94 75 00 	call	0xea	; 0xea <ChangeChannel>
+			}
+		}
+		if(adcNewData == 1)		// флаг adcNewData установлен?
+ 148:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__data_start>
+ 14c:	81 30       	cpi	r24, 0x01	; 1
+ 14e:	a9 f7       	brne	.-22     	; 0x13a <main+0x12>
+		{						// да
+			if ((UCSRA & (1<<UDRE)) != 0) // регистр данных пуст?
+ 150:	5d 9b       	sbis	0x0b, 5	; 11
+ 152:	f3 cf       	rjmp	.-26     	; 0x13a <main+0x12>
+			{
+				UDR = result;	// запись данных из result в регистр передачи
+ 154:	80 91 6f 00 	lds	r24, 0x006F	; 0x80006f <result>
+ 158:	8c b9       	out	0x0c, r24	; 12
+				adcNewData = 0;		// сброс флага adcNewData
+ 15a:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__data_start>
+ 15e:	ed cf       	rjmp	.-38     	; 0x13a <main+0x12>
+
+00000160 <__vector_14>:
+
+/*******************************************************
+	Подпрограмма обработки прерывания по завершению преобразования модуля АЦП
+********************************************************/
+ISR(ADC_vect)
+{
+ 160:	1f 92       	push	r1
+ 162:	0f 92       	push	r0
+ 164:	0f b6       	in	r0, 0x3f	; 63
+ 166:	0f 92       	push	r0
+ 168:	11 24       	eor	r1, r1
+ 16a:	8f 93       	push	r24
+	result = ADCH;		// чтение старшего регистра данных
+ 16c:	85 b1       	in	r24, 0x05	; 5
+ 16e:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <result>
+	TIFR = (1<<OCF1B);  // сброс флага прерывания OCF1B в регистре TIFR записью лог. 1
+ 172:	88 e0       	ldi	r24, 0x08	; 8
+ 174:	88 bf       	out	0x38, r24	; 56
+	adcNewData = 1;   // установка флага adcNewData
+ 176:	81 e0       	ldi	r24, 0x01	; 1
+ 178:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+}
+ 17c:	8f 91       	pop	r24
+ 17e:	0f 90       	pop	r0
+ 180:	0f be       	out	0x3f, r0	; 63
+ 182:	0f 90       	pop	r0
+ 184:	1f 90       	pop	r1
+ 186:	18 95       	reti
+
+00000188 <__vector_9>:
+
+/***********************************************************************
+	Подпрограмма обработки прерывания по переполнению таймера Т0
+************************************************************************/
+ISR(TIMER0_OVF_vect)
+{
+ 188:	1f 92       	push	r1
+ 18a:	0f 92       	push	r0
+ 18c:	0f b6       	in	r0, 0x3f	; 63
+ 18e:	0f 92       	push	r0
+ 190:	11 24       	eor	r1, r1
+ 192:	8f 93       	push	r24
+	time++;
+ 194:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__data_end>
+ 198:	8f 5f       	subi	r24, 0xFF	; 255
+ 19a:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__data_end>
+	if (time == DEB_NUM)		// необходимый таймаут сформирован
+ 19e:	83 32       	cpi	r24, 0x23	; 35
+ 1a0:	41 f4       	brne	.+16     	; 0x1b2 <__vector_9+0x2a>
+	{
+		flagDeb = 0;			// сброс флага
+ 1a2:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <flagDeb>
+		TCCR0 = 0x00;			// останов таймера
+ 1a6:	13 be       	out	0x33, r1	; 51
+		TIMSK &= ~(1<<TOIE0);	// запрещение прерывания по переполнению Т0
+ 1a8:	89 b7       	in	r24, 0x39	; 57
+ 1aa:	8e 7f       	andi	r24, 0xFE	; 254
+ 1ac:	89 bf       	out	0x39, r24	; 57
+		time = 0;
+ 1ae:	10 92 6c 00 	sts	0x006C, r1	; 0x80006c <__data_end>
+	}
+}
+ 1b2:	8f 91       	pop	r24
+ 1b4:	0f 90       	pop	r0
+ 1b6:	0f be       	out	0x3f, r0	; 63
+ 1b8:	0f 90       	pop	r0
+ 1ba:	1f 90       	pop	r1
+ 1bc:	18 95       	reti
+
+000001be <_exit>:
+ 1be:	f8 94       	cli
+
+000001c0 <__stop_program>:
+ 1c0:	ff cf       	rjmp	.-2      	; 0x1c0 <__stop_program>
